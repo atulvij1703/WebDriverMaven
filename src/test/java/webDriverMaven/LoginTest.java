@@ -1,5 +1,7 @@
 package webDriverMaven;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -22,6 +24,8 @@ public class LoginTest {
 	@Test
 	public void doLogin() {
 		driver.get("https://gmail.com");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.findElement(By.id("identifierId")).sendKeys("test@ft.com");
 		driver.findElement(By.id("identifierNext")).click();
 	}
